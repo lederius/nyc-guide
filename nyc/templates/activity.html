@@ -3,7 +3,7 @@
 <ul>
     {% for venue in venues %}
     <li>
-        <a href="{% url 'activity' borough activity venue %} "
+        <a href="{% url 'venue' borough activity venue %} "
             >{{ venue |title }}</a
         >
     </li>

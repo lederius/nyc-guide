@@ -26,9 +26,7 @@ class ActivityView(View):
             context={
                 'borough': borough,
                 'activity': activity,
-                'activities': boroughs[borough][activity].keys()}
-                # if i use anything other than activies for the variable name it breaks. 
-                # cant find where activites is needed
+                'venues': boroughs[borough][activity].keys()}
         )
 
 
@@ -36,11 +34,10 @@ class VenueView(View):
     def get(self, request, borough, activity, venue):
         return render(
             request=request,
-            template_name='venue.html',
+            template_name='activity.html',
             context={
                 'borough': borough,
                 'activity': activity,
                 'venue': venue,
-                'description': boroughs[borough][activity][venue][1]}
-                # its nor rendering what it should
+                'activities': boroughs[borough][activity][venue].keys()}
         )
