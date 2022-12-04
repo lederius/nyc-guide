@@ -1,3 +1,4 @@
+[README.md](https://github.com/pablom06/nyc-guide-2/files/10149246/README.md)
 # New York City Guide - Django Project
 
 ## To start building the project:
