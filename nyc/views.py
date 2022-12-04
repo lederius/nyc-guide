@@ -19,14 +19,28 @@ class BoroughView(View):
 
 
 class ActivityView(View):
-    pass
-    # def get(self, request, activity):
-    #     return render(
-    #         request=request,
-    #         template_name='activity.html',
-    
-    #     )
+    def get(self, request, borough, activity):
+        return render(
+            request=request,
+            template_name='activity.html',
+            context={
+                'borough': borough,
+                'activity': activity,
+                'activities': boroughs[borough][activity].keys()}
+                # if i use anything other than activies for the variable name it breaks. 
+                # cant find where activites is needed
+        )
 
 
 class VenueView(View):
-    pass
+    def get(self, request, borough, activity, venue):
+        return render(
+            request=request,
+            template_name='venue.html',
+            context={
+                'borough': borough,
+                'activity': activity,
+                'venue': venue,
+                'description': boroughs[borough][activity][venue][1]}
+                # its nor rendering what it should
+        )

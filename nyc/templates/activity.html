@@ -1,10 +1,10 @@
-<h1>{{ borough | title }}</h1>
+<h1>{{ activity | title }}</h1>
 
 <ul>
-    {% for activity in activities %}
+    {% for venue in venues %}
     <li>
-        <a href="{% url 'activity' borough activity %} "
-            >{{ activity|title }}</a
+        <a href="{% url 'activity' borough activity venue %} "
+            >{{ venue |title }}</a
         >
     </li>
     {% endfor %}
