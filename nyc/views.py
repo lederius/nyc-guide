@@ -20,6 +20,12 @@ class BoroughView(View):
 
 class ActivityView(View):
     pass
+    # def get(self, request, activity):
+    #     return render(
+    #         request=request,
+    #         template_name='activity.html',
+    
+    #     )
 
 
 class VenueView(View):
