@@ -20,6 +20,7 @@ class BoroughView(View):
 
 class ActivityView(View):
     def get(self, request, borough, activity):
+        print(activity, '<---')
         return render(
             request=request,
             template_name='activity.html',
@@ -34,10 +35,15 @@ class VenueView(View):
     def get(self, request, borough, activity, venue):
         return render(
             request=request,
-            template_name='activity.html',
+            template_name='venue.html',
             context={
                 'borough': borough,
                 'activity': activity,
                 'venue': venue,
-                'activities': boroughs[borough][activity][venue].keys()}
+                'descriptions': boroughs[borough][activity][venue]['description']}
         )
+        # TypeError at /brooklyn/beaches/manhattan beach
+            # VenueView.get() missing 1 required positional argument: 'description'
+        # error was due to adding an extra parameter 'description' with no arguement to be passed
+        # Was not rendering because of that and because of line 43 calling '.keys()' instead of
+            #'description.           
